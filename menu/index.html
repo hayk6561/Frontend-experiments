@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e367f35415.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <script src="js/jqu.js"></script>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+  
+/* canvas****************** */
+
+.canv{
+  border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+
+
+
+<!-- menu -->
+  <div class="header">
+<h2>Resize window</h2>
+<input class="op" id="menu" type="checkbox" name="open" >
+<label class="open" for="menu">
+    <span><i class="fas fa-align-justify"></i></span>
+</label>
+<nav>
+    <ul class="ul">
+        <li><i class="fa fa-android"></i>menu1</li>
+        <li><i class="fas fa-wifi"></i>menu2</li>
+        <li><i class="fas fa-clock"></i>menu3</li>
+        <li><i class="fas fa-radiation"></i>menu4</li>
+        <li><i class="far fa-comment"></i>menu5</li>
+    </ul>
+    <label class="close" for="menu">
+
+        <span><i class="far fa-times-circle"></i></span>
+    </label>
+</nav> 
+</div> 
+
+<!-- canvas -->
+<div class="can-contein">
+  <label style="display:block" for="col">Color
+  <input type="color" id="col" name="color" value="">  </label>
+  <canvas id="canv" width="500px" height="300px" class="canv">
+  </canvas>
+</div> 
+
+
+<!-- gallery -->
+<div id="galery-contein" class="gallery">
+  <div class="big">
+    <spa style="position: absolute;left: 0;color: blueviolet;">dblclick</spa>
+     <img src="start.jpg" alt="con" />
+  </div>
+  <div class="small">
+   <div><img src="ireq.jpg"  alt=" 1" /></div>
+   <div><img src="sev3.jpg"  alt=" 2" /></div>
+   <div><img src="sev4.jpg"  alt=" 3" /></div>
+   <div><img src="hing.jpg"  alt=" 3" /></div>
+   <div><img src="sev5.jpg"  alt=" 4" /></div>
+   <div><img src="back.jpg"  alt=" 1" /></div>
+   <div><img src="vec.jpg"  alt=" 2" /></div>
+   <div><img src="4k.jpg"  alt=" 1" /></div>
+   <div><img src="8k.jpg"  alt=" 2" /></div>
+   <div><img src="sev5.jpg"  alt=" 4" /></div>
+   <div><img src="back.jpg"  alt=" 1" /></div>
+  </div>
+</div>
+<script>
+ $(document).ready(function() {
+
+  $(".small img").click(function () {
+   
+       if ( $(".big img").attr("src")!==$(this).attr('src')){
+    
+        $(".big img").hide().attr("src", $(this).attr('src')).fadeIn(1000)
+       }else{
+     
+       }
+   })
+   $(".big img").dblclick(function() {
+    var d=$("#galery-contein")[0]
+    d.requestFullscreen();
+  
+   })
+
+ // function myFunction() {
+ //  var elmnt = document.getElementById("myDIV");
+ //  var x=document.getElementById("content");
+ //  var y = elmnt.scrollTop;
+ //  var xw=elmnt.clientHeight
+ //  var xh=x.scrollHeight;
+ //  if(y + xw >= xh){
+ //   x.style.background='red';
+ //  }else{
+ //    x.style.background='';
+ //  }
+ // }
+ var canvas=document.getElementById("canv")
+ var ctx=canvas.getContext("2d");
+var color='';
+document.getElementById("col").oninput=function(){
+   color=this.value;
+
+}
+   console.log(color);
+
+canvas.onmousedown=function(){
+  this.onmousemove=function(e){
+   var x=e.offsetX;
+   var y=e.offsetY;
+   ctx.fillRect(x-10,y-10,20,20)
+   ctx.fillStyle=color;
+   ctx.fill()
+  }
+this.onmouseup=function(){
+    this.onmousemove=null
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ })
+</script>
+</body>
+</html>

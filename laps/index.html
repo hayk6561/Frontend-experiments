@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/slide.css">
+    <link rel="stylesheet" href="css/button.css">
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    /* background: linear-gradient(90deg, rgb(87, 14, 45) 0%, rgb(7, 80, 153) 100%);  */
+    background: #333;
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    
+<div id="wrapper">
+  <div id="cube">
+  <div class="side" id="side1"><img src="img/sev1.jpg" alt="1"></div>
+  <div class="side" id="side2"><img src="img/ireq.jpg" alt="2"></div>
+  <div class="side" id="side3"><img src="img/sev2.jpg" alt="3"></div>
+  <div class="side" id="side4"><img src="img/800x800.png" alt="4"></div>
+  <div class="side" id="side5"><img src="img/800x8003.jpg" alt="5"></div>
+  <div class="side" id="side6"><img src="img/sev5.jpg" alt="6"></div>
+  <div class="side" id="side7"><img src="img/back.jpg" alt="7"></div>
+  <div class="side" id="side8"><img src="img/hing.jpg" alt="8"></div>
+  <div class="side" id="side9"><img src="img/sev3.jpg" alt="9"></div>
+  <div class="side" id="side10"><img src="img/sev4.jpg" alt="10"></div>
+  </div>
+</div>
+    <button id="btn">
+        <span>3D Style</span> 
+    </button>
+  
+
+<script>
+
+
+	var rotateY = 0,
+		  rotateX = 0;
+
+	document.onkeydown = function (e) {
+		   if (e.keyCode === 37){
+            rotateY -= 5
+           } else if (e.keyCode === 38){
+            rotateX += 5
+           } else if (e.keyCode === 39){
+            rotateY += 5
+           } else if (e.keyCode === 40){
+            rotateX -= 5
+           } 
+
+		document.getElementById('cube').style.transform = 
+      'rotateY(' + rotateY + 'deg)'+
+      'rotateX(' + rotateX + 'deg)';
+
+    }
+    
+document.getElementById("btn").onclick=function(){
+    var pers= document.getElementById("wrapper");
+   
+   if(pers.style.perspective==='350px'){
+    pers.style.perspective='300px'
+   }else if( pers.style.perspective==='300px'){
+       pers.style.perspective='600px'
+   }else{
+    pers.style.perspective='350px'
+   }
+}
+
+
+
+</script>
+
+</body>
+</html>

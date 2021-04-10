@@ -1,0 +1,39 @@
+.gallery {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    max-width: 500px;
+    height: 480px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.gallery:fullscreen .big {
+  width: 90%;
+  height: 600px;
+  border: none;
+}
+.big {
+    background-image: url("loader.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: inherit;
+    height: 300px;
+ 
+}
+
+.small {
+margin-top:10px; 
+width: inherit;
+  overflow: auto;
+display: grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+}
+.big>img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain
+}
+.small img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

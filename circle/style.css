@@ -1,0 +1,78 @@
+.circle,
+   .line {
+    width: 300px;
+    height: 300px;
+   
+   
+  }
+
+ .circle {
+   
+    transform-style: preserve-3d;
+  
+     border :2px solid rgb(255, 0, 0);
+	 border-radius:50%;
+    animation: spinn 15s 5 linear alternate;
+  }
+  .contein{
+    perspective:600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url("image/4k.jpg") ; */
+   background: rgba(0, 0, 0, 0.9);
+    background-size: 200%;
+    background-position: left;
+      height: 600px;
+      width: 600px;
+      animation: anim 10s alternate infinite;
+      overflow: hidden;
+  }
+  @keyframes anim{
+      100%{
+          background-position: right;
+        
+      }
+  }
+ .line {
+    position: absolute;
+   border:2px solid red;
+    right: 0;
+    bottom: 0;
+   border-radius:50%;
+   transition: 2s;
+    
+  }
+ .line:nth-child(1) {
+    transform: rotateY(36deg);
+  }
+  
+ .line:nth-child(2) {
+    transform: rotateY(72deg);
+  }
+  
+ .line:nth-child(3) {
+    transform: rotateY(108deg);
+  }
+  
+.line:nth-child(4) {
+    transform: rotateY(144deg);
+  }
+  
+  @keyframes spinn {
+    25%{
+         /* background: rgba(0,0,0,0.4) */
+    }
+    50%{
+       
+    }
+    100% {
+      transform: rotateX(360deg) rotateY(360deg)  
+    }
+  }
+
+  .circle:hover .line{
+    
+      background: rgba(128, 26, 26, 0.4) 
+      
+  } 

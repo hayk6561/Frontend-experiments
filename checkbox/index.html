@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/slide.css">
+    <script src="js/jqu.js"></script>
+    <title>Document</title>
+    <style>
+    
+body {
+ 
+    margin: 0;
+    padding: 0;
+  background: linear-gradient(90deg, rgb(42, 20, 46) 0%, blue 100%);
+
+  
+  }
+ 
+
+input{
+    margin: 20px;
+}
+#color-contain{
+    color: white;
+    font-size: 20px;
+}
+
+    </style>
+</head>
+<body>   
+<div id="color-contain">
+Button color<input type="radio" id="col" value="col" name="rad">
+Button background <input type="radio" id="row" value="bg" name="rad">
+
+<div id="pat" class="rang">
+<label for="r">Red</label>
+<input disabled type="range" min="0" name="r" id="r" max="255" value="0">
+    <label for="g">Green</label>
+<input disabled type="range" min="0" name="g" id="g" max="255" value="0">
+    <label for="b">Blue</label>
+<input disabled type="range" min="0" name="b" id="b" max="255" value="0">
+    <label for="opa">Opacity</label>
+    <input disabled type="range" id="opa" min="0" max="10" value="10">
+</div>
+</div>
+
+
+
+
+  <input id="inp" type="checkbox">
+    <label class="btn"  for="inp">
+     
+        <i id="lk" class="fa fa-power-off"></i>
+        <p id="pp"></p>
+      </label>
+
+
+      <div class="slide">
+        <ul class="slideul">
+            <li id="mek"><img src="img/ireq.jpg" alt="1"></li>
+            <li id="erku"><img src="img/sev5.jpg" alt="2"></li>
+            <li id="ireq"><img src="img/back.jpg" alt="3"></li> 
+            <li id="chors"><img src="img/hing.jpg" alt="4"></li>
+            <li id="hing"><img src="img/sev3.jpg" alt="5"></li>
+            <li id="vec"><img src="img/vec.jpg" alt="6"></li>
+           
+        </ul>
+        </div> 
+<script>
+$(document).ready(function() {
+  
+
+
+function disattr() {
+            var aa = $(".rang input");
+            for (i = 0; i < aa.length; i++) {
+                aa[i].disabled = ''
+
+
+            }
+        }
+
+        var r = 0, g = 0, b = 0, o = 1;
+
+        document.getElementById("r").oninput = function () {
+            r = this.value
+            xx(r, g, b, o)
+        }
+        document.getElementById("g").oninput = function () {
+            g = this.value
+            xx(r, g, b, o)
+        }
+        document.getElementById("b").oninput = function () {
+            b = this.value
+            xx(r, g, b, o)
+        }
+        document.getElementById("opa").oninput = function () {
+            o = this.value / 10
+            xx(r, g, b, o)
+
+        }
+
+        var test=document.getElementsByName('rad');
+
+
+        for (i=0;i<test.length;i++){
+            test[i].onchange=imm
+        }
+var d;
+
+
+        function imm() {
+            disattr()
+
+            if (this.value === "col") {
+                 d = document.getElementById("lk")
+               console.log(d.id)
+            } else {
+                d = document.getElementById("pp")
+         
+             
+            }
+        }
+        function xx(m,n,p,k,col,back) {
+        if(d.id==='lk'){
+          d.style.color = `rgba(${m},${n},${p},${k})`
+        }else{
+          d.style.background = `rgba(${m},${n},${p},${k})` 
+        }
+           
+        
+    }
+
+
+
+
+
+
+
+
+
+      })
+ </script>
+</body>
+</html>

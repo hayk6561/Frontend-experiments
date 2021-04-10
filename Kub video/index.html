@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e367f35415.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+    </style>
+</head>
+<body>
+    
+<div id="wrapper">
+    <div class="full">
+        <span><i onclick="fullscreen()" class="fas fa-compress-arrows-alt"></i></span>
+        <span><i onclick="closeFull()" class="fas fa-expand-arrows-alt"></i></span>
+        <span>Press Up Down Left Right for keyboard </span>
+    </div>
+    <video src="video/rim.mp4" id="videoblure" autoplay='' muted></video>
+  <div id="cube">
+  <div class="side" id="side1"><video src="video/rim.mp4" autoplay='' muted=''  alt="c"></div>
+  <div class="side" id="side3"><video  autoplay="" muted='' src="video/rim.mp4"></video></div>
+  <div class="side" id="side4"><video  autoplay="" muted='' src="video/rim.mp4"></video></div>
+  <div class="side" id="side5"><video  autoplay="" muted='' src="video/rim.mp4"></video></div>
+  <div class="side" id="side6"><video  autoplay="" muted='' src="video/rim.mp4"></video></div>
+  </div>
+</div>
+
+<script>
+
+
+	var rotateY = 0,
+		  rotateX = 0;
+
+	document.onkeydown = function (e) {
+		   if (e.keyCode === 37){
+            rotateY -= 5
+           } else if (e.keyCode === 38){
+            rotateX += 5
+           } else if (e.keyCode === 39){
+            rotateY += 5
+           } else if (e.keyCode === 40){
+            rotateX -= 5
+           } 
+       
+		document.getElementById('cube').style.transform = 
+      'rotateY(' + rotateY + 'deg)'+
+      'rotateX(' + rotateX + 'deg)';
+    }
+      var full=document.getElementById("wrapper")
+     function fullscreen() {
+        if (full.requestFullscreen) {
+    full.requestFullscreen();
+  }
+     }
+
+   function closeFull() {
+    if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+   }
+   
+   
+
+
+</script>
+</body>
+</html>

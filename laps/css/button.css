@@ -1,0 +1,62 @@
+  
+  button {
+    outline: none;
+    margin-bottom: 40px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    width: 250px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+  transition: 1s;
+    cursor: pointer;
+  overflow: hidden;
+  background: linear-gradient(45deg, #4F00BC, #29ABE2);
+  }
+  span{
+      position: relative;
+  }
+  button:after, button:before {
+    content: '';
+    position: absolute;
+    width: 469px;
+      height: 469px; 
+      transition: 0.5s ease;
+  }
+  button:after {
+    border-radius: 41%;
+    background: rgba(51, 51, 51, 0.5);
+    animation: aliq 12s linear infinite;
+    right:-95px;
+      bottom: 37px;
+  
+  }
+  button:before {
+    border-radius: 45%;
+    background:#333;
+    left: -110px;
+   bottom: 37px;
+    animation: aliq 20s linear infinite;
+  }
+  
+   button:hover::before{
+      bottom: 100px;
+  }
+  button:hover::after{
+      bottom: 100px;
+  }
+  button:hover{
+      box-shadow: 0 5px 30px #29ABE2;
+  }
+  @keyframes aliq {
+    0% {
+      transform:  rotate(0deg);
+    }
+    0% {
+      transform:  rotate(360deg);
+    }
+  }
